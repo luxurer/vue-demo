@@ -6,21 +6,25 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/demo':{
-        target: "http://www.hautlw.xin/",
-        changeOrigin:true,
-        pathRewrite:{
-          '^/demo':''
-        }
+      '/demo': {
+        // target: 'http://11.12.106.75:8084',//测试环境
+        //target: 'http://192.168.7.40:7098', //开发环境
+        // target:'http://192.168.36.32:3330',//王振华
+        target: 'http://localhost:3330', //刘伟
+        // target:'http://192.168.36.34:3330',//岳小兵
+        // target:'http://192.168.36.36:3330',//张鸣
+        // target: 'http://192.168.36.38:3330',//李波
+        // target:'http://192.168.3.131:3330',
+        changeOrigin: true
       }
     },
 
     // Various Dev Server settings
+    hot: true, // 热加载
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
