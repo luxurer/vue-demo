@@ -11,7 +11,7 @@ import NotFound from '../views/error/NotFound';
 Vue.use(Router);
 export default new Router({
   mode:'history',
-  base: '/demo/',
+  base: '/ltap/',
   routes:[
     {
       //登录页

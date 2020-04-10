@@ -2,8 +2,9 @@
   <div>
     <el-form ref="form" :model="form" :rules="rules" label-width="80px;" class="login-box">
       <h3 class="login-title">欢迎</h3>
-      <el-form-item label="账号" prop="username">
-        <el-input type="textarea" placeholder="请粘贴今天通知群里的聊天内容" class="textarea-box" v-model="form.username"/>
+      <el-form-item prop="identity" id='identities'>
+        <el-input type="textarea" placeholder="请粘贴身份证号码到这里" id='textarea_identities' class="textarea-box"
+                  v-model="form.identity"/>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit('form')">验证</el-button>
@@ -20,29 +21,29 @@
       return {
         form: {
           username: '',
-          password: []
+          password: [],
+          identity: ''
         },
         stu: {
           name: "",
           no: ""
         },
         rules: {
-          username: [
-            {required: true, message: '请粘贴今天通知群里的聊天内容', trigger: 'blur'},
+          identity: [
+            {required: true, message: '请粘贴身份证号码到这里', trigger: 'blur'},
           ]
         }
       }
     },
     methods: {
       onSubmit(formName) {
-
         this.$refs[formName].validate((valid) => {
           if (valid) {
             sessionStorage.setItem('isLogin', 'true');
             this.axios({
               method: 'post',
               /*url: 'ryhc/jk1602/list',*/
-              url: 'test.json',
+              url: 'sbma-regionalism/getRegionList',
               /*params: {
                 s: this.form.username,
               }*/
@@ -61,7 +62,6 @@
                 username: "1",
                 password: '2'
               }
-              debugger
               this.$store.dispatch('asyncUpdateUser', {password: this.form.password})
               //编程式导航
               this.$router.push({name: 'Main'});
@@ -82,18 +82,28 @@
 </script>
 <style lang="scss" scoped>
   .login-box {
-    width: 350px;
+    width: 450px;
     margin: 150px auto;
     border: 1px solid #DCDFE6;
     padding: 25px;
     border-radius: 5px;
     box-shadow: 0 0 25px #DCDFE6;
+    height: 700px;
   }
 
   .login-title {
-    /* text-align: center;
-     height: 80%;*/
-
+    text-align: center;
+    height: 2%;
   }
 
+  #identities {
+    min-height: 500px;
+    height: 500px;
+    border: 200px;
+  }
+
+  #textarea_identities {
+    position: relative;
+    height: 430px;
+  }
 </style>

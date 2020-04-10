@@ -76,7 +76,6 @@
       }
     },
     data() {
-
       this.password = this.$store.getters.getUser.password;
       console.log("this.password", this.$store.getters.getUser.password);
       return {

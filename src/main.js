@@ -16,7 +16,6 @@ Vue.use(Vuex)
 //路由跳转前
 router.beforeEach(((to, from, next) => {
   let isLogin = sessionStorage.getItem('isLogin');
-
   //注销
   if (to.path == '/logout') {
     sessionStorage.clear();
@@ -28,7 +27,6 @@ router.beforeEach(((to, from, next) => {
   }else if (isLogin == null) {
     next({path: '/login'})
   }
-
   next();
 }));
 

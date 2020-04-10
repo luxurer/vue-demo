@@ -10,11 +10,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/demo': {
+      '/ltap': {
         // target: 'http://11.12.106.75:8084',//测试环境
         //target: 'http://192.168.7.40:7098', //开发环境
         // target:'http://192.168.36.32:3330',//王振华
-        target: 'http://localhost:3330', //刘伟
+        target: 'http://localhost:9099', //刘伟
         // target:'http://192.168.36.34:3330',//岳小兵
         // target:'http://192.168.36.36:3330',//张鸣
         // target: 'http://192.168.36.38:3330',//李波
